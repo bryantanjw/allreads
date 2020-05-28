@@ -1,0 +1,37 @@
+{% extends "prelogin-layout.html" %}
+{% include "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Search All Reads {% endblock %}
+
+{% block content %}
+    <div class="container_search">
+        <br>
+    <h1>Search</h1>
+    <form class="search" action="{{ url_for('search') }}" method="post">
+        <input type="text" name="search-text" value="{{ search }}" placeholder="Search by ISBN, Title, or Author">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if books is defined and books|length > 0 %}
+        <table class="result">
+            <tr class="header">
+                <td class="grow-20">ISBN</td>
+                <td class="grow-35">Title</td>
+                <td class="grow-35">Author</td>
+            </tr>
+            {% for book in books %}
+                <tr class="book">
+                    <td class="grow-20">{{ book.isbn }}</td>
+                    <td class="grow-35">{{ book.title }}</td>
+                    <td class="grow-35">{{ book.author }}</td>
+                    <td><a href="{{ url_for('details', isbn=book.isbn) }}">Details</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No matches found</p>
+    {% endif %}
+    </div>
+{% endblock %}
+
