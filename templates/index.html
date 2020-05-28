@@ -1,0 +1,29 @@
+{% include "bootstrap/base.html" %}
+{% extends "prelogin-layout.html" %}
+
+
+{% from 'form_helper.html' import displayField %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content %}
+    <div class="index">
+        <h1>Welcome to <p>All Reads</p></h1>
+        <p>Search our database of 5,000 books, read reviews by avid readers by like
+            yourself, and submit your own reviews!
+        </p>
+        <br>
+        <p>To get started, login or <a href="{{ url_for('register') }}" style="color: rgb(4, 179, 179);">register</a>.</p>
+
+        <form action="{{ url_for('index') }}" method="POST">
+            {{ form.csrf_token }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.password) }}
+            {{ wtf.form_field(form.remember) }}
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </form>
+        
+    </div>
+    
+{% endblock %}
