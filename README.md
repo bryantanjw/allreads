@@ -2,6 +2,10 @@
 
 ### Live in Heroku - https://allreads.herokuapp.com/
 
+![](https://i.ibb.co/M2CZbcQ/Screenshot-2020-07-02-at-3-25-46-AM.png)
+
+![](https://i.ibb.co/pXH1S6g/Screenshot-2020-07-02-at-3-25-36-AM.png)
+
 ## Overview
 This is a book review website. Users will be able to register for the website and then log in using their username and password. Once they log in, they will be able to search for books, leave reviews for individual books, and see the reviews made by other people. There is also the use of a third-party API by Goodreads, another book review website, to pull in ratings from a broader audience. Finally, users will be able to query for book details and book reviews programmatically via the website’s API.
 
